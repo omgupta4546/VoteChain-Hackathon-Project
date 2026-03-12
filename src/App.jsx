@@ -128,9 +128,10 @@ const Web3Provider = ({ children }) => {
       if (contractInstance) {
         setContract(contractInstance);
         try {
-          const adminAddress = await contractInstance.admin();
-          if (adminAddress.toLowerCase() === acc.toLowerCase()) {
+          const isAdminUser = await contractInstance.isAdmin(acc);
+          if (isAdminUser) {
             setIsAdmin(true);
+            addNotification("Welcome Admin", "success");
           }
         } catch (e) {
           console.error("Failed to fetch admin", e);
