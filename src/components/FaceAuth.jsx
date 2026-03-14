@@ -28,9 +28,9 @@ const FaceAuth = ({ account, isRegistration, onVerified, addNotification }) => {
         const loadModels = async () => {
             try {
                 await Promise.all([
-                    faceapi.nets.tinyFaceDetector.loadFromUri(window.location.origin + '/models'),
-                    faceapi.nets.faceLandmark68Net.loadFromUri(window.location.origin + '/models'),
-                    faceapi.nets.faceRecognitionNet.loadFromUri(window.location.origin + '/models')
+                    faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+                    faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+                    faceapi.nets.faceRecognitionNet.loadFromUri('/models')
                 ]);
                 setIsModelsLoaded(true);
                 if (step === 'scan') {
