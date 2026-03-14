@@ -134,8 +134,8 @@ const Web3Provider = ({ children }) => {
             addNotification("Welcome Admin", "success");
           }
         } catch (e) {
-          console.error("Failed to fetch admin", e);
-          addNotification("Connected, but could not verify Admin status. Check Contract Address.", "warning");
+          console.warn("Failed to fetch admin - continuing as voter. Details:", e.message);
+          // Don't toast an error here so users aren't confused if they just aren't an admin
         }
       }
     } catch (error) {
